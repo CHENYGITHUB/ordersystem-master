@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>天天点餐</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link  th:href="@{css/ie10-viewport-bug-workaround.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{css/starter-template.css}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body style="background-color: #222222">
+
+  <div th:replace="commons/bar::#topbar"></div>
+  <div class="row" style="margin-left: 5%; margin-right: 5%; margin-top: 3%;">
+
+      <div th:replace="commons/bar::#sine"></div>
+      <div class="row" style="margin-left: 5%; margin-right: 5%; margin-top: 3%;">
+
+    <div class="row">
+    <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">
+            <img src="img/chuan (1).jpg"
+             alt="通用的占位符缩略图">
+            <div class="caption">
+                <h3>鱼香肉丝</h3>
+                <p>肉丝质地柔滑软嫩。是下饭菜的必选。</p>
+                <p>20.00</p>
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">
+                                                     确定
+                    </a>
+                </p>
+            </div>
+         </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="img/chuan (2).jpg"
+            alt="通用的占位符缩略图">
+            <div class="caption">
+                <h3>一品豆腐</h3>
+                <p>豆腐洁白如玉，柔软细嫩，适口清爽。</p>
+                <p>15.00</p>
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">
+                                                     确定
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="img/chuan (3).jpg"
+            alt="通用的占位符缩略图">
+            <div class="caption">
+                <h3>广州文昌鸡</h3>
+                <p>此菜造型美观，芡汁明亮，肉质滑嫩。</p>
+                <p>40.00</p>
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">
+                                                     确定
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="img/chuan (1).jpg"
+            alt="通用的占位符缩略图">
+            <div class="caption">
+                <h3>清汤火方</h3>
+                <p>汤清见底，味鲜汁醇，火腿酥香而脍炙入口</p>
+                <p>35.00</p>
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">
+                                                     确定
+                    </a>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+	            <title>Bootstrap 实例 - 默认的翻页</title>
+	            <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+             	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	            <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+             </head>
+
+      <ul class="pager">
+      	    <li><a href="#">首页</a></li>
+      	    <li><a href="#">上一页</a></li>
+	          <li><a href="#">1</a></li>
+	          <li><a href="#">下一页</a></li>
+      </ul>
+
+
+     <!-- <div class="starter-template">
+
+     </div>-->
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>

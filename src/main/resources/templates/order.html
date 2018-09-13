@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>天天点餐</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link  th:href="@{css/ie10-viewport-bug-workaround.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{css/starter-template.css}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+<!--style="background-color: #222222"-->
+  <body >
+
+  <div th:replace="commons/bar::#topbar"></div>
+    <!--<img src="img/title1.jpg"  style="align-content: center;"/>-->
+    <div class="text-center">
+            <img src="img/title1.jpg" />
+        </div>
+    	
+    <!--<div class="table-responsive" >-->
+    <div class="table-responsive" >
+  <table class="table">
+    <caption>响应式表格布局</caption>
+    <thead>
+      <tr>
+        <th>餐桌编号</th>
+        <th>订单日期</th>
+        <th>总价格</th>
+        <th>订单状态</th>
+      </tr>
+      
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2018/11/2013</td>
+        <td>180.00</td>
+        <td>未支付</td>
+        <td></td>
+      </tr>
+      <tr>
+      
+    </tbody> 
+    
+  </table>
+     
+     <div class="text-center">
+            <img src="img/title2.jpg" />
+        </div>
+    <div class="row" style="margin-left: 25%; margin-right: 10%; margin-top: 3%;">
+	
+    <div class="col-sm-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="img/zfb.jpg"
+                 alt="通用的占位符缩略图">
+        </a>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="img/wx.jpg" 
+                 alt="通用的占位符缩略图">
+        </a>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="img/qq_zf.jpg" 
+                 alt="通用的占位符缩略图">
+        </a>
+        
+    </div>
+   
+    </div>
+      <div class="text-center"><button type="submit" class="btn btn-primary">确认支付</button></div>
+    
+     
+     
+     
+    
+     <!-- <div class="starter-template">
+        
+     </div>-->
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
