@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mybatis.OrderdetailMapper" >
-  <resultMap id="BaseResultMap" type="com.guangdong.ordersystem.pojo.Orderdetail" >
-    <id column="ID" property="id" jdbcType="INTEGER" />
-    <result column="ORDERID" property="orderid" jdbcType="INTEGER" />
-    <result column="FOOD_ID" property="foodId" jdbcType="INTEGER" />
-    <result column="FOODCOUNT" property="foodcount" jdbcType="INTEGER" />
+<mapper namespace="com.guangdong.ordersystem.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.guangdong.ordersystem.pojo.User" >
+    <id column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="userpassword" property="userpassword" jdbcType="VARCHAR" />
+    <result column="identity" property="identity" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ID, ORDERID, FOOD_ID, FOODCOUNT
+    userid, username, userpassword, identity
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.guangdong.ordersystem.pojo.OrderdetailExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.guangdong.ordersystem.pojo.UserExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from orderdetail
+    from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,76 +85,76 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from orderdetail
-    where ID = #{id,jdbcType=INTEGER}
+    from user
+    where userid = #{userid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from orderdetail
-    where ID = #{id,jdbcType=INTEGER}
+    delete from user
+    where userid = #{userid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.guangdong.ordersystem.pojo.OrderdetailExample" >
-    delete from orderdetail
+  <delete id="deleteByExample" parameterType="com.guangdong.ordersystem.pojo.UserExample" >
+    delete from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.guangdong.ordersystem.pojo.Orderdetail" >
-    insert into orderdetail (ID, ORDERID, FOOD_ID, 
-      FOODCOUNT)
-    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{foodId,jdbcType=INTEGER}, 
-      #{foodcount,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.guangdong.ordersystem.pojo.User" >
+    insert into user (userid, username, userpassword, 
+      identity)
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
+      #{identity,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.guangdong.ordersystem.pojo.Orderdetail" >
-    insert into orderdetail
+  <insert id="insertSelective" parameterType="com.guangdong.ordersystem.pojo.User" >
+    insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        ID,
+      <if test="userid != null" >
+        userid,
       </if>
-      <if test="orderid != null" >
-        ORDERID,
+      <if test="username != null" >
+        username,
       </if>
-      <if test="foodId != null" >
-        FOOD_ID,
+      <if test="userpassword != null" >
+        userpassword,
       </if>
-      <if test="foodcount != null" >
-        FOODCOUNT,
+      <if test="identity != null" >
+        identity,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
       </if>
-      <if test="orderid != null" >
-        #{orderid,jdbcType=INTEGER},
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
       </if>
-      <if test="foodId != null" >
-        #{foodId,jdbcType=INTEGER},
+      <if test="userpassword != null" >
+        #{userpassword,jdbcType=VARCHAR},
       </if>
-      <if test="foodcount != null" >
-        #{foodcount,jdbcType=INTEGER},
+      <if test="identity != null" >
+        #{identity,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.guangdong.ordersystem.pojo.OrderdetailExample" resultType="java.lang.Integer" >
-    select count(*) from orderdetail
+  <select id="countByExample" parameterType="com.guangdong.ordersystem.pojo.UserExample" resultType="java.lang.Integer" >
+    select count(*) from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update orderdetail
+    update user
     <set >
-      <if test="record.id != null" >
-        ID = #{record.id,jdbcType=INTEGER},
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=INTEGER},
       </if>
-      <if test="record.orderid != null" >
-        ORDERID = #{record.orderid,jdbcType=INTEGER},
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.foodId != null" >
-        FOOD_ID = #{record.foodId,jdbcType=INTEGER},
+      <if test="record.userpassword != null" >
+        userpassword = #{record.userpassword,jdbcType=VARCHAR},
       </if>
-      <if test="record.foodcount != null" >
-        FOODCOUNT = #{record.foodcount,jdbcType=INTEGER},
+      <if test="record.identity != null" >
+        identity = #{record.identity,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -162,35 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update orderdetail
-    set ID = #{record.id,jdbcType=INTEGER},
-      ORDERID = #{record.orderid,jdbcType=INTEGER},
-      FOOD_ID = #{record.foodId,jdbcType=INTEGER},
-      FOODCOUNT = #{record.foodcount,jdbcType=INTEGER}
+    update user
+    set userid = #{record.userid,jdbcType=INTEGER},
+      username = #{record.username,jdbcType=VARCHAR},
+      userpassword = #{record.userpassword,jdbcType=VARCHAR},
+      identity = #{record.identity,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.guangdong.ordersystem.pojo.Orderdetail" >
-    update orderdetail
+  <update id="updateByPrimaryKeySelective" parameterType="com.guangdong.ordersystem.pojo.User" >
+    update user
     <set >
-      <if test="orderid != null" >
-        ORDERID = #{orderid,jdbcType=INTEGER},
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="foodId != null" >
-        FOOD_ID = #{foodId,jdbcType=INTEGER},
+      <if test="userpassword != null" >
+        userpassword = #{userpassword,jdbcType=VARCHAR},
       </if>
-      <if test="foodcount != null" >
-        FOODCOUNT = #{foodcount,jdbcType=INTEGER},
+      <if test="identity != null" >
+        identity = #{identity,jdbcType=INTEGER},
       </if>
     </set>
-    where ID = #{id,jdbcType=INTEGER}
+    where userid = #{userid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.guangdong.ordersystem.pojo.Orderdetail" >
-    update orderdetail
-    set ORDERID = #{orderid,jdbcType=INTEGER},
-      FOOD_ID = #{foodId,jdbcType=INTEGER},
-      FOODCOUNT = #{foodcount,jdbcType=INTEGER}
-    where ID = #{id,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.guangdong.ordersystem.pojo.User" >
+    update user
+    set username = #{username,jdbcType=VARCHAR},
+      userpassword = #{userpassword,jdbcType=VARCHAR},
+      identity = #{identity,jdbcType=INTEGER}
+    where userid = #{userid,jdbcType=INTEGER}
   </update>
 </mapper>

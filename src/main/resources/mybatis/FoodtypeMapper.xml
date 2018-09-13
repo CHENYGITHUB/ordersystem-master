@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mybatis.OrdersMapper" >
-  <resultMap id="BaseResultMap" type="com.guangdong.ordersystem.pojo.Orders" >
+<mapper namespace="com.guangdong.ordersystem.mapper.FoodtypeMapper" >
+  <resultMap id="BaseResultMap" type="com.guangdong.ordersystem.pojo.Foodtype" >
     <id column="ID" property="id" jdbcType="INTEGER" />
-    <result column="TABLE_ID" property="tableId" jdbcType="INTEGER" />
-    <result column="ORDERDATE" property="orderdate" jdbcType="TIMESTAMP" />
-    <result column="TOTALPRICE" property="totalprice" jdbcType="DECIMAL" />
-    <result column="ORDERSTATUS" property="orderstatus" jdbcType="INTEGER" />
+    <result column="TYPENAME" property="typename" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,15 +64,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ID, TABLE_ID, ORDERDATE, TOTALPRICE, ORDERSTATUS
+    ID, TYPENAME
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.guangdong.ordersystem.pojo.OrdersExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.guangdong.ordersystem.pojo.FoodtypeExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from orders
+    from foodtype
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,85 +83,56 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from orders
+    from foodtype
     where ID = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from orders
+    delete from foodtype
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.guangdong.ordersystem.pojo.OrdersExample" >
-    delete from orders
+  <delete id="deleteByExample" parameterType="com.guangdong.ordersystem.pojo.FoodtypeExample" >
+    delete from foodtype
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.guangdong.ordersystem.pojo.Orders" >
-    insert into orders (ID, TABLE_ID, ORDERDATE, 
-      TOTALPRICE, ORDERSTATUS)
-    values (#{id,jdbcType=INTEGER}, #{tableId,jdbcType=INTEGER}, #{orderdate,jdbcType=TIMESTAMP}, 
-      #{totalprice,jdbcType=DECIMAL}, #{orderstatus,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.guangdong.ordersystem.pojo.Foodtype" >
+    insert into foodtype (ID, TYPENAME)
+    values (#{id,jdbcType=INTEGER}, #{typename,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.guangdong.ordersystem.pojo.Orders" >
-    insert into orders
+  <insert id="insertSelective" parameterType="com.guangdong.ordersystem.pojo.Foodtype" >
+    insert into foodtype
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         ID,
       </if>
-      <if test="tableId != null" >
-        TABLE_ID,
-      </if>
-      <if test="orderdate != null" >
-        ORDERDATE,
-      </if>
-      <if test="totalprice != null" >
-        TOTALPRICE,
-      </if>
-      <if test="orderstatus != null" >
-        ORDERSTATUS,
+      <if test="typename != null" >
+        TYPENAME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="tableId != null" >
-        #{tableId,jdbcType=INTEGER},
-      </if>
-      <if test="orderdate != null" >
-        #{orderdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="totalprice != null" >
-        #{totalprice,jdbcType=DECIMAL},
-      </if>
-      <if test="orderstatus != null" >
-        #{orderstatus,jdbcType=INTEGER},
+      <if test="typename != null" >
+        #{typename,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.guangdong.ordersystem.pojo.OrdersExample" resultType="java.lang.Integer" >
-    select count(*) from orders
+  <select id="countByExample" parameterType="com.guangdong.ordersystem.pojo.FoodtypeExample" resultType="java.lang.Integer" >
+    select count(*) from foodtype
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update orders
+    update foodtype
     <set >
       <if test="record.id != null" >
         ID = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.tableId != null" >
-        TABLE_ID = #{record.tableId,jdbcType=INTEGER},
-      </if>
-      <if test="record.orderdate != null" >
-        ORDERDATE = #{record.orderdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.totalprice != null" >
-        TOTALPRICE = #{record.totalprice,jdbcType=DECIMAL},
-      </if>
-      <if test="record.orderstatus != null" >
-        ORDERSTATUS = #{record.orderstatus,jdbcType=INTEGER},
+      <if test="record.typename != null" >
+        TYPENAME = #{record.typename,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -172,40 +140,25 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update orders
+    update foodtype
     set ID = #{record.id,jdbcType=INTEGER},
-      TABLE_ID = #{record.tableId,jdbcType=INTEGER},
-      ORDERDATE = #{record.orderdate,jdbcType=TIMESTAMP},
-      TOTALPRICE = #{record.totalprice,jdbcType=DECIMAL},
-      ORDERSTATUS = #{record.orderstatus,jdbcType=INTEGER}
+      TYPENAME = #{record.typename,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.guangdong.ordersystem.pojo.Orders" >
-    update orders
+  <update id="updateByPrimaryKeySelective" parameterType="com.guangdong.ordersystem.pojo.Foodtype" >
+    update foodtype
     <set >
-      <if test="tableId != null" >
-        TABLE_ID = #{tableId,jdbcType=INTEGER},
-      </if>
-      <if test="orderdate != null" >
-        ORDERDATE = #{orderdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="totalprice != null" >
-        TOTALPRICE = #{totalprice,jdbcType=DECIMAL},
-      </if>
-      <if test="orderstatus != null" >
-        ORDERSTATUS = #{orderstatus,jdbcType=INTEGER},
+      <if test="typename != null" >
+        TYPENAME = #{typename,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.guangdong.ordersystem.pojo.Orders" >
-    update orders
-    set TABLE_ID = #{tableId,jdbcType=INTEGER},
-      ORDERDATE = #{orderdate,jdbcType=TIMESTAMP},
-      TOTALPRICE = #{totalprice,jdbcType=DECIMAL},
-      ORDERSTATUS = #{orderstatus,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.guangdong.ordersystem.pojo.Foodtype" >
+    update foodtype
+    set TYPENAME = #{typename,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

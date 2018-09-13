@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mybatis.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.guangdong.ordersystem.pojo.User" >
-    <id column="userid" property="userid" jdbcType="INTEGER" />
-    <result column="username" property="username" jdbcType="VARCHAR" />
-    <result column="userpassword" property="userpassword" jdbcType="VARCHAR" />
-    <result column="identity" property="identity" jdbcType="INTEGER" />
+<mapper namespace="com.guangdong.ordersystem.mapper.DinnertableMapper" >
+  <resultMap id="BaseResultMap" type="com.guangdong.ordersystem.pojo.Dinnertable" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="TABLENAME" property="tablename" jdbcType="VARCHAR" />
+    <result column="TABLESTATUS" property="tablestatus" jdbcType="INTEGER" />
+    <result column="ORDERDATE" property="orderdate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    userid, username, userpassword, identity
+    ID, TABLENAME, TABLESTATUS, ORDERDATE
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.guangdong.ordersystem.pojo.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.guangdong.ordersystem.pojo.DinnertableExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user
+    from dinnertable
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,76 +85,76 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from user
-    where userid = #{userid,jdbcType=INTEGER}
+    from dinnertable
+    where ID = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from user
-    where userid = #{userid,jdbcType=INTEGER}
+    delete from dinnertable
+    where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.guangdong.ordersystem.pojo.UserExample" >
-    delete from user
+  <delete id="deleteByExample" parameterType="com.guangdong.ordersystem.pojo.DinnertableExample" >
+    delete from dinnertable
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.guangdong.ordersystem.pojo.User" >
-    insert into user (userid, username, userpassword, 
-      identity)
-    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
-      #{identity,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.guangdong.ordersystem.pojo.Dinnertable" >
+    insert into dinnertable (ID, TABLENAME, TABLESTATUS, 
+      ORDERDATE)
+    values (#{id,jdbcType=INTEGER}, #{tablename,jdbcType=VARCHAR}, #{tablestatus,jdbcType=INTEGER}, 
+      #{orderdate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.guangdong.ordersystem.pojo.User" >
-    insert into user
+  <insert id="insertSelective" parameterType="com.guangdong.ordersystem.pojo.Dinnertable" >
+    insert into dinnertable
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="userid != null" >
-        userid,
+      <if test="id != null" >
+        ID,
       </if>
-      <if test="username != null" >
-        username,
+      <if test="tablename != null" >
+        TABLENAME,
       </if>
-      <if test="userpassword != null" >
-        userpassword,
+      <if test="tablestatus != null" >
+        TABLESTATUS,
       </if>
-      <if test="identity != null" >
-        identity,
+      <if test="orderdate != null" >
+        ORDERDATE,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="userid != null" >
-        #{userid,jdbcType=INTEGER},
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="username != null" >
-        #{username,jdbcType=VARCHAR},
+      <if test="tablename != null" >
+        #{tablename,jdbcType=VARCHAR},
       </if>
-      <if test="userpassword != null" >
-        #{userpassword,jdbcType=VARCHAR},
+      <if test="tablestatus != null" >
+        #{tablestatus,jdbcType=INTEGER},
       </if>
-      <if test="identity != null" >
-        #{identity,jdbcType=INTEGER},
+      <if test="orderdate != null" >
+        #{orderdate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.guangdong.ordersystem.pojo.UserExample" resultType="java.lang.Integer" >
-    select count(*) from user
+  <select id="countByExample" parameterType="com.guangdong.ordersystem.pojo.DinnertableExample" resultType="java.lang.Integer" >
+    select count(*) from dinnertable
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update user
+    update dinnertable
     <set >
-      <if test="record.userid != null" >
-        userid = #{record.userid,jdbcType=INTEGER},
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.username != null" >
-        username = #{record.username,jdbcType=VARCHAR},
+      <if test="record.tablename != null" >
+        TABLENAME = #{record.tablename,jdbcType=VARCHAR},
       </if>
-      <if test="record.userpassword != null" >
-        userpassword = #{record.userpassword,jdbcType=VARCHAR},
+      <if test="record.tablestatus != null" >
+        TABLESTATUS = #{record.tablestatus,jdbcType=INTEGER},
       </if>
-      <if test="record.identity != null" >
-        identity = #{record.identity,jdbcType=INTEGER},
+      <if test="record.orderdate != null" >
+        ORDERDATE = #{record.orderdate,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -162,35 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update user
-    set userid = #{record.userid,jdbcType=INTEGER},
-      username = #{record.username,jdbcType=VARCHAR},
-      userpassword = #{record.userpassword,jdbcType=VARCHAR},
-      identity = #{record.identity,jdbcType=INTEGER}
+    update dinnertable
+    set ID = #{record.id,jdbcType=INTEGER},
+      TABLENAME = #{record.tablename,jdbcType=VARCHAR},
+      TABLESTATUS = #{record.tablestatus,jdbcType=INTEGER},
+      ORDERDATE = #{record.orderdate,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.guangdong.ordersystem.pojo.User" >
-    update user
+  <update id="updateByPrimaryKeySelective" parameterType="com.guangdong.ordersystem.pojo.Dinnertable" >
+    update dinnertable
     <set >
-      <if test="username != null" >
-        username = #{username,jdbcType=VARCHAR},
+      <if test="tablename != null" >
+        TABLENAME = #{tablename,jdbcType=VARCHAR},
       </if>
-      <if test="userpassword != null" >
-        userpassword = #{userpassword,jdbcType=VARCHAR},
+      <if test="tablestatus != null" >
+        TABLESTATUS = #{tablestatus,jdbcType=INTEGER},
       </if>
-      <if test="identity != null" >
-        identity = #{identity,jdbcType=INTEGER},
+      <if test="orderdate != null" >
+        ORDERDATE = #{orderdate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where userid = #{userid,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.guangdong.ordersystem.pojo.User" >
-    update user
-    set username = #{username,jdbcType=VARCHAR},
-      userpassword = #{userpassword,jdbcType=VARCHAR},
-      identity = #{identity,jdbcType=INTEGER}
-    where userid = #{userid,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.guangdong.ordersystem.pojo.Dinnertable" >
+    update dinnertable
+    set TABLENAME = #{tablename,jdbcType=VARCHAR},
+      TABLESTATUS = #{tablestatus,jdbcType=INTEGER},
+      ORDERDATE = #{orderdate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

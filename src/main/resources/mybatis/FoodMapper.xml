@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mybatis.FoodMapper" >
+<mapper namespace="com.guangdong.ordersystem.mapper.FoodMapper" >
   <resultMap id="BaseResultMap" type="com.guangdong.ordersystem.pojo.Food" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="FOODNAME" property="foodname" jdbcType="VARCHAR" />

@@ -1,4 +1,4 @@
-package mybatis;
+package com.guangdong.ordersystem.mapper;
 
 import com.guangdong.ordersystem.pojo.Dinnertable;
 import com.guangdong.ordersystem.pojo.DinnertableExample;
