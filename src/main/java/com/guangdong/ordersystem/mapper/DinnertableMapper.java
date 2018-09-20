@@ -2,8 +2,9 @@ package com.guangdong.ordersystem.mapper;
 
 import com.guangdong.ordersystem.pojo.Dinnertable;
 import com.guangdong.ordersystem.pojo.DinnertableExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface DinnertableMapper {
     int countByExample(DinnertableExample example);

@@ -2,8 +2,9 @@ package com.guangdong.ordersystem.mapper;
 
 import com.guangdong.ordersystem.pojo.Orderdetail;
 import com.guangdong.ordersystem.pojo.OrderdetailExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface OrderdetailMapper {
     int countByExample(OrderdetailExample example);
