@@ -2,7 +2,7 @@ spring:
   datasource:
     #   数据源基本配置
     username: root
-    password: 995765791
+    password: root
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/order
     type: com.alibaba.druid.pool.DruidDataSource
@@ -26,5 +26,5 @@ spring:
 mybatis:
   # 指定全局配置文件位置
   config-location: classpath:mybatis/mybatis-config.xml
-  # 指定sql映射文件位置
   mapper-locations: classpath:mybatis/mapper/*.xml
+  # 指定sql映射文件位置

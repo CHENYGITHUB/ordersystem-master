@@ -26,11 +26,15 @@
     </div>
 </nav>
 
-<ul class="nav nav-pills nav-justified" id="sine">
-    <li><a href="#">川菜</a></li>
-    <li ><a href="#">鲁菜</a></li>
-    <li><a href="#">粤菜</a></li>
-    <li><a href="#">苏菜</a></li>
-</ul><br><br><br>
+<!--<ul class="nav nav-pills nav-justified" id="sine">-->
+    <!--<li><a href="#">川菜</a></li>-->
+    <!--<li ><a href="#">鲁菜</a></li>-->
+    <!--<li><a href="#">粤菜</a></li>-->
+    <!--<li><a href="#">苏菜</a></li>-->
+<!--</ul>-->
+        <ul class="nav nav-pills nav-justified" id="sine" th:each="emp:${emps}">
+             <li th:href="${emp.typename}"></li>
+       </ul>
+<br><br><br>
 </body>
 </html>
