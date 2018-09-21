@@ -2,9 +2,9 @@ package com.guangdong.ordersystem.mapper;
 
 import com.guangdong.ordersystem.pojo.User;
 import com.guangdong.ordersystem.pojo.UserExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 public interface UserMapper {
     int countByExample(UserExample example);
 

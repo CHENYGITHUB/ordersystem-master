@@ -2,8 +2,9 @@ package com.guangdong.ordersystem.mapper;
 
 import com.guangdong.ordersystem.pojo.Foodtype;
 import com.guangdong.ordersystem.pojo.FoodtypeExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface FoodtypeMapper {
     int countByExample(FoodtypeExample example);
